@@ -13,7 +13,6 @@ class Point
 				 yValue = yval; 
 				 return *this;
 			 }
-			 
 	private : 
 		int xValue;
 		int yValue;
@@ -67,7 +66,7 @@ int Handle::x() const {
 int Handle::y() const { 
 	return up->p.y(); 
 }
-#if 0 // ハンドルがポインタのようにふるまうか値的なようにふるまうか
+#if 1 // ハンドルがポインタのようにふるまうか値的なようにふるまうか
 Handle& Handle::x(int xval) {
 	up->p.x(xval);
 	return *this;
