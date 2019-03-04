@@ -66,7 +66,6 @@ int Handle::x() const {
 int Handle::y() const { 
 	return up->p.y(); 
 }
-#if 1 // ハンドルがポインタのようにふるまうか値的なようにふるまうか
 Handle& Handle::x(int xval) {
 	up->p.x(xval);
 	return *this;
@@ -75,24 +74,6 @@ Handle& Handle::y(int yval) {
 	up->p.y(yval);
 	return *this;
 }
-#else
-Handle& Handle::x(int xval) {
-	if (up->u != 1) {
-		--up->u;
-		up = new UPoint(up->p);
-	}
-	up->p.x(xval);
-	return *this;
-}
-Handle& Handle::y(int yval) {
-	if (up->u != 1) {
-		--up->u;
-		up = new UPoint(up->p);
-	}
-	up->p.y(yval);
-	return *this;
-}
-#endif
 int main(void)
 {
 	Handle handle(3,5);
